@@ -1,0 +1,254 @@
+<mujoco model="four_franka_pandas">
+    <option timestep="0.001" integrator="RK4" gravity="0 0 0"/>
+    
+    <default>
+        <joint damping="0.01" stiffness="0" limited="true"/>
+        <geom rgba="0.8 0.6 0.4 1" condim="4" friction="1 0.5 0.5"/>
+    </default>
+    
+    <worldbody>
+        <!-- Base for first arm (Front) -->
+        <body name="base1" pos="1.5 0 0" euler="0 0 180">
+            <geom type="box" size="0.2 0.2 0.1" rgba="0.3 0.3 0.3 1"/>
+            <!-- First Arm -->
+            <body name="link1_1" pos="0 0 0.1">
+                <joint name="joint1_1" type="hinge" axis="0 0 1" range="-180 180"/>
+                <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="1 0 0 1"/>
+                <body name="link1_2" pos="0 0 0.3">
+                    <joint name="joint1_2" type="hinge" axis="0 1 0" range="-90 90"/>
+                    <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0 1 0 1"/>
+                    <body name="link1_3" pos="0 0 0.3">
+                        <joint name="joint1_3" type="hinge" axis="0 0 1" range="-180 180"/>
+                        <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0 0 1 1"/>
+                        <body name="link1_4" pos="0 0 0.3">
+                            <joint name="joint1_4" type="hinge" axis="0 1 0" range="-90 90"/>
+                            <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="1 1 0 1"/>
+                            <body name="link1_5" pos="0 0 0.3">
+                                <joint name="joint1_5" type="hinge" axis="0 0 1" range="-180 180"/>
+                                <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="1 0 1 1"/>
+                                <body name="link1_6" pos="0 0 0.3">
+                                    <joint name="joint1_6" type="hinge" axis="0 1 0" range="-90 90"/>
+                                    <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0 1 1 1"/>
+                                    <body name="link1_7" pos="0 0 0.3"> 
+                                        <joint name="joint1_7" type="hinge" axis="0 0 1" range="-180 180"/>
+                                        <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0.5 0.5 0.5 1"/>
+                                        <body name="end_effector1" pos="0 0 0.3">
+                                            <geom type="sphere" size="0.05" rgba="0.8 0 0 1"/>
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+
+        <!-- Base for second arm (Right) -->
+        <body name="base2" pos="0 1.5 0" euler="0 0 -90">
+            <geom type="box" size="0.2 0.2 0.1" rgba="0.3 0.3 0.3 1"/>
+            <!-- First Arm -->
+            <body name="link2_1" pos="0 0 0.1">
+                <joint name="joint2_1" type="hinge" axis="0 0 1" range="-180 180"/>
+                <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="1 0 0 1"/>
+                <body name="link2_2" pos="0 0 0.3">
+                    <joint name="joint2_2" type="hinge" axis="0 1 0" range="-90 90"/>
+                    <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0 1 0 1"/>
+                    <body name="link2_3" pos="0 0 0.3">
+                        <joint name="joint2_3" type="hinge" axis="0 0 1" range="-180 180"/>
+                        <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0 0 1 1"/>
+                        <body name="link2_4" pos="0 0 0.3">
+                            <joint name="joint2_4" type="hinge" axis="0 1 0" range="-90 90"/>
+                            <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="1 1 0 1"/>
+                            <body name="link2_5" pos="0 0 0.3">
+                                <joint name="joint2_5" type="hinge" axis="0 0 1" range="-180 180"/>
+                                <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="1 0 1 1"/>
+                                <body name="link2_6" pos="0 0 0.3">
+                                    <joint name="joint2_6" type="hinge" axis="0 1 0" range="-90 90"/>
+                                    <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0 1 1 1"/>
+                                    <body name="link2_7" pos="0 0 0.3">
+                                        <joint name="joint2_7" type="hinge" axis="0 0 1" range="-180 180"/>
+                                        <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0.5 0.5 0.5 1"/>
+                                        <body name="end_effector2" pos="0 0 0.3">
+                                            <geom type="sphere" size="0.05" rgba="0.8 0 0 1"/>
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+
+         <body name="base3" pos="-1.5 0 0" euler="0 0 0">
+            <geom type="box" size="0.2 0.2 0.1" rgba="0.3 0.3 0.3 1"/>
+            <!-- First Arm -->
+            <body name="link3_1" pos="0 0 0.1">
+                <joint name="joint3_1" type="hinge" axis="0 0 1" range="-180 180"/>
+                <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="1 0 0 1"/>
+                <body name="link3_2" pos="0 0 0.3">
+                    <joint name="joint3_2" type="hinge" axis="0 1 0" range="-90 90"/>
+                    <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0 1 0 1"/>
+                    <body name="link3_3" pos="0 0 0.3">
+                        <joint name="joint3_3" type="hinge" axis="0 0 1" range="-180 180"/>
+                        <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0 0 1 1"/>
+                        <body name="link3_4" pos="0 0 0.3">
+                            <joint name="joint3_4" type="hinge" axis="0 1 0" range="-90 90"/>
+                            <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="1 1 0 1"/>
+                            <body name="link3_5" pos="0 0 0.3">
+                                <joint name="joint3_5" type="hinge" axis="0 0 1" range="-180 180"/>
+                                <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="1 0 1 1"/>
+                                <body name="link3_6" pos="0 0 0.3">
+                                    <joint name="joint3_6" type="hinge" axis="0 1 0" range="-90 90"/>
+                                    <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0 1 1 1"/>
+                                    <body name="link3_7" pos="0 0 0.3">
+                                        <joint name="joint3_7" type="hinge" axis="0 0 1" range="-180 180"/>
+                                        <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0.5 0.5 0.5 1"/>
+                                        <body name="end_effector3" pos="0 0 0.3">
+                                            <geom type="sphere" size="0.05" rgba="0.8 0 0 1"/>
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+
+         <body name="base4" pos="0 -1.5 0" euler="0 0 90">
+            <geom type="box" size="0.2 0.2 0.1" rgba="0.3 0.3 0.3 1"/>
+            <!-- First Arm -->
+            <body name="link4_1" pos="0 0 0.1">
+                <joint name="joint4_1" type="hinge" axis="0 0 1" range="-180 180"/>
+                <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="1 0 0 1"/>
+                <body name="link4_2" pos="0 0 0.3">
+                    <joint name="joint4_2" type="hinge" axis="0 1 0" range="-90 90"/>
+                    <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0 1 0 1"/>
+                    <body name="link4_3" pos="0 0 0.3">
+                        <joint name="joint4_3" type="hinge" axis="0 0 1" range="-180 180"/>
+                        <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0 0 1 1"/>
+                        <body name="link4_4" pos="0 0 0.3">
+                            <joint name="joint4_4" type="hinge" axis="0 1 0" range="-90 90"/>
+                            <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="1 1 0 1"/>
+                            <body name="link4_5" pos="0 0 0.3">
+                                <joint name="joint4_5" type="hinge" axis="0 0 1" range="-180 180"/>
+                                <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="1 0 1 1"/>
+                                <body name="link4_6" pos="0 0 0.3">
+                                    <joint name="joint4_6" type="hinge" axis="0 1 0" range="-90 90"/>
+                                    <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0 1 1 1"/>
+                                    <body name="link4_7" pos="0 0 0.3">
+                                        <joint name="joint4_7" type="hinge" axis="0 0 1" range="-180 180"/>
+                                        <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.05" rgba="0.5 0.5 0.5 1"/>
+                                        <body name="end_effector4" pos="0 0 0.3">
+                                            <geom type="sphere" size="0.05" rgba="0.8 0 0 1"/>
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+
+
+        <!-- Repeat similarly for third and fourth arms -->
+    </worldbody>
+
+    <actuator>
+        <!-- Add actuators for all arms -->
+        <motor name="motor1_1" joint="joint1_1" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor1_2" joint="joint1_2" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor1_3" joint="joint1_3" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor1_4" joint="joint1_4" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor1_5" joint="joint1_5" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor1_6" joint="joint1_6" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor1_7" joint="joint1_7" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor2_1" joint="joint2_1" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor2_2" joint="joint2_2" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor2_3" joint="joint2_3" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor2_4" joint="joint2_4" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor2_5" joint="joint2_5" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor2_6" joint="joint2_6" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor2_7" joint="joint2_7" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor3_1" joint="joint3_1" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor3_2" joint="joint3_2" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor3_3" joint="joint3_3" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor3_4" joint="joint3_4" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor3_5" joint="joint3_5" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor3_6" joint="joint3_6" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor3_7" joint="joint3_7" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor4_1" joint="joint4_1" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor4_2" joint="joint4_2" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor4_3" joint="joint4_3" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor4_4" joint="joint4_4" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor4_5" joint="joint4_5" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor4_6" joint="joint4_6" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        <motor name="motor4_7" joint="joint4_7" ctrlrange="-1 1" ctrllimited="true" gear="1"/>
+        
+
+        <!-- Add the rest for each joint -->
+    </actuator>
+
+    <sensor>
+        <jointpos joint="joint1_1"/>
+        <jointpos joint="joint1_2"/>
+        <jointpos joint="joint1_3"/>
+        <jointpos joint="joint1_4"/>
+        <jointpos joint="joint1_5"/>
+        <jointpos joint="joint1_6"/>
+        <jointpos joint="joint1_7"/>
+        <jointvel joint="joint1_1"/>
+        <jointvel joint="joint1_2"/>
+        <jointvel joint="joint1_3"/>
+        <jointvel joint="joint1_4"/>
+        <jointvel joint="joint1_5"/>
+        <jointvel joint="joint1_6"/>
+        <jointvel joint="joint1_7"/>
+        <jointpos joint="joint2_1"/>
+        <jointpos joint="joint2_2"/>
+        <jointpos joint="joint2_3"/>
+        <jointpos joint="joint2_4"/>
+        <jointpos joint="joint2_5"/>
+        <jointpos joint="joint2_6"/>
+        <jointpos joint="joint2_7"/>
+        <jointvel joint="joint2_1"/>
+        <jointvel joint="joint2_2"/>
+        <jointvel joint="joint2_3"/>
+        <jointvel joint="joint2_4"/>
+        <jointvel joint="joint2_5"/>
+        <jointvel joint="joint2_6"/>
+        <jointvel joint="joint2_7"/>
+        <jointpos joint="joint3_1"/>
+        <jointpos joint="joint3_2"/>
+        <jointpos joint="joint3_3"/>
+        <jointpos joint="joint3_4"/>
+        <jointpos joint="joint3_5"/>
+        <jointpos joint="joint3_6"/>
+        <jointpos joint="joint3_7"/>
+        <jointvel joint="joint3_1"/>
+        <jointvel joint="joint3_2"/>
+        <jointvel joint="joint3_3"/>
+        <jointvel joint="joint3_4"/>
+        <jointvel joint="joint3_5"/>
+        <jointvel joint="joint3_6"/>
+        <jointvel joint="joint3_7"/>
+        <jointpos joint="joint4_1"/>
+        <jointpos joint="joint4_2"/>
+        <jointpos joint="joint4_3"/>
+        <jointpos joint="joint4_4"/>
+        <jointpos joint="joint4_5"/>
+        <jointpos joint="joint4_6"/>
+        <jointpos joint="joint4_7"/>
+        <jointvel joint="joint4_1"/>
+        <jointvel joint="joint4_2"/>
+        <jointvel joint="joint4_3"/>
+        <jointvel joint="joint4_4"/>
+        <jointvel joint="joint4_5"/>
+        <jointvel joint="joint4_6"/>
+        <jointvel joint="joint4_7"/>
+
+    </sensor>
+</mujoco>
